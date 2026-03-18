@@ -36,7 +36,14 @@ export function createFlowField(p: p5, seedNum: number) {
         const px = (x / cols) * p.width + p.width * 0.06;
         const py = (y / rows) * p.height + p.height * 0.08;
         const n = p.noise(x * 0.18 + t, y * 0.18 + t * 0.8);
-        const ang = field[x][y] + n * 6.28;
+        let ang = field[x][y] + n * 6.28;
+        // subtle mouse repulsion
+        const mx = p.mouseX, my = p.mouseY;
+        const dx = px - mx, dy = py - my;
+        const d = Math.hypot(dx, dy);
+        let repel = 0;
+        if (d < 140 && p.mouseX > 0) repel = p.map(d, 0, 140, 0.9, 0);
+        ang += repel;
         const len = 18 + n * 10;
         const nx = Math.cos(ang) * len;
         const ny = Math.sin(ang) * len;
