@@ -1,5 +1,6 @@
 import p5 from 'p5';
 import { createFlowField } from './sketches/flow-field';
+import { createParticles } from './sketches/particles';
 
 function getSeed(): string {
   const params = new URLSearchParams(location.search);
@@ -45,3 +46,23 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'r') document.getElementById('regen')?.click();
   if (e.key === 's') document.getElementById('save')?.click();
 });
+
+// Gallery thumbnails — seeded from card index + global seed
+function initGallery() {
+  const cards = document.querySelectorAll<HTMLDivElement>('.sketch-card');
+  cards.forEach((card, idx) => {
+    const canvas = card.querySelector('canvas');
+    if (!canvas) return;
+    const parent = canvas.parentElement!;
+    // clear placeholder
+    parent.style.padding = '0'; parent.style.overflow = 'hidden';
+    const sketchName = card.dataset.sketch;
+    const cardSeed = hashSeed(`${seedStr}-${sketchName}-${idx}`);
+    if (sketchName === 'particles') {
+      new p5((p: p5) => createParticles(p, cardSeed), parent);
+      // remove original canvas element p5 will have created its own
+      canvas.remove();
+    }
+  });
+}
+initGallery();
