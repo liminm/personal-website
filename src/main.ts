@@ -1,6 +1,7 @@
 import p5 from 'p5';
 import { createFlowField } from './sketches/flow-field';
 import { createParticles } from './sketches/particles';
+import { createGrid } from './sketches/grid';
 
 function getSeed(): string {
   const params = new URLSearchParams(location.search);
@@ -60,8 +61,29 @@ function initGallery() {
     const cardSeed = hashSeed(`${seedStr}-${sketchName}-${idx}`);
     if (sketchName === 'particles') {
       new p5((p: p5) => createParticles(p, cardSeed), parent);
-      // remove original canvas element p5 will have created its own
       canvas.remove();
+    } else if (sketchName === 'grid') {
+      new p5((p: p5) => createGrid(p, cardSeed), parent);
+      canvas.remove();
+    } else if (sketchName === 'flow-field') {
+      // hero thumbnail - simplified static preview
+      const c = document.createElement('canvas');
+      parent.replaceChild(c, canvas);
+      new p5((p: p5) => {
+        p.setup = () => {
+          const cc = p.createCanvas(parent.clientWidth, 160);
+          cc.parent(parent);
+          p.noiseSeed(cardSeed); p.randomSeed(cardSeed);
+          p.strokeWeight(0.7); p.stroke(10,10,11, 30);
+          for (let i=0;i<40;i++) {
+            const x = p.random(p.width), y = p.random(p.height);
+            const ang = p.noise(x*0.02, y*0.02)*p.TWO_PI*2;
+            p.line(x,y, x+Math.cos(ang)*18, y+Math.sin(ang)*18);
+          }
+          p.noLoop();
+        };
+      }, parent);
+      c.remove();
     }
   });
 }
