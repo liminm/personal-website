@@ -75,9 +75,14 @@ body {
 .work-grid, .sketch-grid { display: grid; gap: 16px; margin-top: 16px; }
 .work-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .sketch-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.card, .sketch-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+.card, .sketch-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.sketch-card { padding: 0; overflow: hidden; }
+.sketch-card h4 { padding: 10px 14px; margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
+.sketch-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,10,11,0.06); }
+.card:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(10,10,11,0.05); }
 .card.placeholder { border-style: dashed; }
-.card-thumb { height: 120px; border-radius: 10px; background: #f3f4f6; margin-bottom: 12px; }
+.card-thumb { height: 120px; border-radius: 10px; background: linear-gradient(135deg, #f3f4f6, #e8ff5a22); margin-bottom: 12px; border: 1px dashed var(--border); position: relative; overflow: hidden; }
+.card-thumb::after { content: ''; position: absolute; inset: 0; background: radial-gradient(300px 120px at 30% 40%, rgba(224,255,90,0.35), transparent 60%); }
 .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; margin-right: 6px; }
 .about-grid { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 24px; }
 @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } .hero { padding-top: 36px; } }
