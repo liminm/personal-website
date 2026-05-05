@@ -19,7 +19,19 @@ function hashSeed(s: string): number {
 const seedStr = getSeed();
 const seedNum = hashSeed(seedStr);
 const seedEl = document.getElementById('seed-display');
-if (seedEl) seedEl.textContent = `seed ${seedStr} · ${seedNum}`;
+if (seedEl) {
+  seedEl.textContent = `seed ${seedStr} · ${seedNum}`;
+  seedEl.title = 'Click to copy shareable URL';
+  seedEl.style.cursor = 'pointer';
+  seedEl.addEventListener('click', async () => {
+    const url = new URL(location.href);
+    url.searchParams.set('seed', seedStr);
+    await navigator.clipboard.writeText(url.toString());
+    const prev = seedEl.textContent;
+    seedEl.textContent = 'copied ✓';
+    setTimeout(() => seedEl.textContent = prev, 1200);
+  });
+}
 
 let instance: p5 | null = null;
 const container = document.getElementById('canvas-container');
