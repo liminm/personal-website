@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Limin M — Developer · AI Engineering</title>
-    <meta name="description" content="Limin M — Developer focused on Python, AI Engineering and full-stack TypeScript. Generative art as system." />
+    <meta name="description" content="Limin M — Developer focused on Python, AI Engineering and full-stack TypeScript. Generative art as system — one field, reactive, seeded." />
     <meta property="og:title" content="Limin M — Developer · AI Engineering" />
-    <meta property="og:description" content="Generative portfolio: code as system, seeds and emergence." />
+    <meta property="og:description" content="One generative field. Code as system: seeds and emergence." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://liminm.eu/" />
     <meta name="theme-color" content="#0a0a0b" />
@@ -21,8 +21,6 @@
       <nav class="nav">
         <a href="/" class="logo">liminm<span class="dot">.</span></a>
         <div class="nav-links">
-          <a href="#work">Work</a>
-          <a href="#sketches">Sketches</a>
           <a href="#about">About</a>
           <a href="https://github.com/liminm" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
@@ -34,60 +32,22 @@
         <div class="hero-content">
           <p class="eyebrow">Python · AI Engineering · Full-Stack (TS)</p>
           <h1>Limin M.<br />I build systems where<br /><span class="accent">code becomes visual.</span></h1>
-          <p class="lead">Developer focused on Python, FastAPI, Django, LLMs and computer vision — growing into TypeScript, MLOps, agents and system design. This site is a generative system: every visit is a unique seed.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#work">Explore work</a>
-            <a class="btn ghost" href="#sketches">View sketches</a>
-          </div>
+          <p class="lead">Developer focused on Python, FastAPI, Django, LLMs and computer vision — growing into TypeScript, MLOps, agents and system design. This page <em>is</em> the generative system: one field, reactive, seeded. Drag to disturb the flow.</p>
           <div class="meta-row">
             <span id="seed-display" role="button" tabindex="0" aria-label="Copy shareable seed URL">seed —</span>
             <button id="regen" class="text-btn" aria-label="Regenerate artwork">regenerate [r]</button>
             <button id="save" class="text-btn" aria-label="Save artwork as PNG">save PNG [s]</button>
           </div>
+          <p class="hint">Tip: drag on the field — press <kbd>r</kbd> / <kbd>s</kbd></p>
         </div>
       </section>
 
-      <section id="work" class="section">
-        <h2>Work</h2>
-        <p class="muted">Selected work will appear here. For now — this space is intentionally open while I shape the next projects. The lab below is the current focus and proof of craft.</p>
-        <div class="work-grid">
-          <article class="card placeholder">
-            <div class="card-thumb generative-thumb" data-seed="work-1"></div>
-            <h3>Coming soon</h3>
-            <p>Next case study: agent architecture + evaluation harness. Check back or follow GitHub.</p>
-            <span class="tag">Python</span><span class="tag">Agents</span><span class="tag">MLOps</span>
-          </article>
-          <article class="card">
-            <div class="card-thumb generative-thumb" data-seed="work-2"></div>
-            <h3>Generative Lab →</h3>
-            <p>Three live p5.js systems, seeded and shareable. Code is the artifact.</p>
-            <a href="#sketches">Open lab →</a>
-          </article>
-          <article class="card">
-            <div class="card-thumb generative-thumb" data-seed="work-3"></div>
-            <h3>GitHub</h3>
-            <p>All source for this site and daily seeds are public.</p>
-            <a href="https://github.com/liminm" target="_blank" rel="noopener">github.com/liminm →</a>
-          </article>
-        </div>
-      </section>
-
-      <section id="sketches" class="section">
-        <h2>Sketches — Generative Lab</h2>
-        <p class="muted">Each sketch is instance-mode p5.js, seeded and shareable via <code>?seed=YYYY-MM-DD</code>. Code is the medium.</p>
-        <div class="sketch-grid">
-          <div class="sketch-card" data-sketch="flow-field"><canvas></canvas><h4>01 — Flow Field</h4></div>
-          <div class="sketch-card" data-sketch="particles"><canvas></canvas><h4>02 — Particles</h4></div>
-          <div class="sketch-card" data-sketch="grid"><canvas></canvas><h4>03 — Recursive Grid</h4></div>
-        </div>
-      </section>
-
-      <section id="about" class="section">
+      <section id="about" class="section scrim">
         <h2>About</h2>
         <div class="about-grid">
           <div>
             <p>I'm Limin — developer working at the intersection of <strong>Python backends</strong> and <strong>AI engineering</strong>. I ship with FastAPI/Django, build LLM and computer vision systems, and increasingly design full-stack TypeScript, MLOps pipelines and agent architectures.</p>
-            <p>Generative art is not a side project — it's how I practice system design: constraints, seeds, emergence.</p>
+            <p>Generative art is not a side project — it's how I practice system design: constraints, seeds, emergence. The field behind this page is the same principle.</p>
             <ul class="stack-list">
               <li><strong>Now:</strong> Python, FastAPI, Django, LLMs, Machine Learning, Computer Vision</li>
               <li><strong>Growing into:</strong> TypeScript, Full-Stack, MLOps, Agents, AI Engineering, System Design, Software Architecture</li>
@@ -98,7 +58,7 @@
           </div>
           <div class="colophon">
             <h4>Colophon</h4>
-            <p>Built with Vite + TypeScript + p5.js. Deployed via GitHub Pages. Type set in Inter + JetBrains Mono. Generative seeds are deterministic — same seed, same image. Share any sketch with <code>?seed=YYYY-MM-DD</code>.</p>
+            <p>Generative style as system. One field, seeded. Built with Vite + TypeScript + p5.js (instance mode, DPR 1.5). Drag to disturb — <code>?seed=YYYY-MM-DD</code> to share.</p>
             <p style="margin-top:8px"><a href="mailto:hello@liminm.eu">hello@liminm.eu</a> · <a href="https://github.com/liminm" target="_blank" rel="noopener">GitHub</a></p>
           </div>
         </div>
@@ -106,8 +66,8 @@
     </main>
 
     <footer class="site-footer">
-      <span>© 2026 Limin M. — Code as system. · <a href="mailto:hello@liminm.eu">hello@liminm.eu</a></span>
-      <span><a href="https://github.com/liminm/personal-website" target="_blank" rel="noopener">View source</a> · <a href="/404.html">404</a></span>
+      <span>© 2026 Limin M. — Code as system.</span>
+      <span><a href="https://github.com/liminm/personal-website" target="_blank" rel="noopener">View source</a></span>
     </footer>
 
     <script type="module" src="/src/main.ts"></script>
