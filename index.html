@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#101112" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
@@ -21,49 +21,30 @@
 
     <header class="site-header">
       <nav class="nav" aria-label="Primary">
-        <a href="/" class="logo" aria-label="Home">liminm<span class="dot">.</span></a>
+        <a href="/" class="logo">liminm<span class="dot">.</span></a>
         <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="https://github.com/liminm" target="_blank" rel="noopener">GitHub ↗</a>
+          <button class="nav-btn" id="about-toggle" aria-expanded="false" aria-controls="about-panel">about</button>
+          <a href="https://github.com/liminm" target="_blank" rel="noopener">github ↗</a>
         </div>
       </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-inner">
-          <p class="hero-kicker">Limin M. — Developer</p>
-          <h1 id="hero-title" class="hero-title">
-            <span class="line">I build</span>
-            <span class="line accent-line">AI systems</span>
-            <span class="line">with Python,</span>
-            <span class="line muted-line">machine learning,</span>
-            <span class="line">and increasingly</span>
-            <span class="line">TypeScript.</span>
-          </h1>
-          <p class="hero-sub">Python · FastAPI · Django · LLMs · Computer Vision → TypeScript · MLOps · Agents · System Design</p>
-          <div class="hero-meta">
-            <a href="#about" class="micro-link">About ↓</a>
-            <a href="mailto:hello@liminm.eu" class="micro-link">hello@liminm.eu</a>
-          </div>
+        <div class="hero-caption">
+          <p class="kicker">Python · AI Engineering · Full-Stack</p>
+          <h1 id="hero-title" class="quiet-title">Limin M.<br>Developer</h1>
+          <p class="quiet-sub">Python, FastAPI, Django, LLMs, machine learning and computer vision — growing into TypeScript, MLOps, agents and system design.</p>
+          <button class="text-link" id="about-open" aria-expanded="false" aria-controls="about-panel">about →</button>
         </div>
-        <a href="#about" class="scroll-hint" aria-label="Scroll to about">scroll ↓</a>
       </section>
 
-      <section id="about" class="section about">
-        <div class="about-inner">
-          <div class="about-main">
-            <h2>About</h2>
-            <p>I'm Limin — working at the intersection of Python backends and AI engineering. I build with FastAPI and Django, ship LLM and computer vision systems, and increasingly design full-stack TypeScript, MLOps pipelines and agent architectures.</p>
-            <p class="muted">Now: Python, FastAPI, Django, LLMs, machine learning, computer vision. Growing into TypeScript, full-stack, MLOps, agents, software architecture and system design.</p>
-          </div>
-          <div class="about-side">
-            <p class="side-label">Contact</p>
-            <p><a href="mailto:hello@liminm.eu">hello@liminm.eu</a></p>
-            <p><a href="https://github.com/liminm" target="_blank" rel="noopener">github.com/liminm</a></p>
-            <p class="side-label" style="margin-top:18px">Colophon</p>
-            <p class="muted small">Built with Vite + TypeScript + p5.js. Type set in Space Grotesk + IBM Plex Mono.</p>
-          </div>
+      <section id="about-panel" class="about-panel" hidden>
+        <div class="panel-inner">
+          <h2>About</h2>
+          <p>I'm Limin — working at the intersection of Python backends and AI engineering. I build with FastAPI and Django, ship LLM and computer vision systems, and increasingly design full-stack TypeScript, MLOps pipelines and agent architectures.</p>
+          <p class="muted small">hello@liminm.eu · <a href="https://github.com/liminm" target="_blank" rel="noopener">github.com/liminm</a></p>
+          <button class="text-link small" id="about-close">close ×</button>
         </div>
       </section>
     </main>

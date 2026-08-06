@@ -26,7 +26,6 @@ if (container) {
   if (reduce) {
     instance = new p5((p: p5) => {
       createFlowField(p, seedNum);
-      // allow setup to run, then noLoop after first draw
       const origDraw = p.draw;
       p.draw = () => {
         if (origDraw) origDraw.call(p);
@@ -45,3 +44,19 @@ if (container) {
     obs.observe(container);
   }
 }
+
+// quiet caption — collapsed about disclosure
+const panel = document.getElementById('about-panel') as HTMLElement | null;
+const toggle = document.getElementById('about-toggle') as HTMLButtonElement | null;
+const openBtn = document.getElementById('about-open') as HTMLButtonElement | null;
+const closeBtn = document.getElementById('about-close') as HTMLButtonElement | null;
+function setAbout(open: boolean) {
+  if (!panel || !toggle) return;
+  panel.hidden = !open;
+  toggle.setAttribute('aria-expanded', String(open));
+  openBtn?.setAttribute('aria-expanded', String(open));
+  if (open) panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+}
+toggle?.addEventListener('click', () => setAbout(panel!.hidden));
+openBtn?.addEventListener('click', () => setAbout(true));
+closeBtn?.addEventListener('click', () => setAbout(false));
