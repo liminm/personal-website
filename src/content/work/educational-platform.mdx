@@ -1,0 +1,31 @@
+---
+title: 'Production application for educational products'
+summary: 'A production Python system combining optimized product combinations, scheduling, quotations, CRM integration, and document generation. Described in general terms; employer-owned work.'
+period: 'Professional experience'
+tags: ['Python', 'optimization', 'enterprise integrations', 'Azure']
+---
+
+## Problem
+
+A business sells configurable educational products. Staff need to assemble valid product combinations for customers, produce schedules and quotations, keep records in a CRM system, and generate customer-facing documents — all consistently, from the same data.
+
+## Constraints
+
+- The work is employer-owned, so this page stays at the level of engineering problems and approaches. No proprietary algorithms, identifiers, customer data, or code.
+- Product-combination rules come from the business and change over time, so hard-coding specific outcomes would rot quickly.
+- External systems (CRM, document outputs) can be unavailable or inconsistent, and the application still has to behave sanely.
+
+## Approach
+
+- A Python backend models products, pricing rules, and scheduling constraints explicitly, so rule changes land in data and configuration rather than scattered conditionals.
+- Schedule and quotation generation are deterministic pipelines over that model: same inputs, same outputs, which makes them testable.
+- CRM integration goes through a small, isolated layer so Dynamics 365 / Dataverse API specifics don't leak into business logic.
+- Documents are generated programmatically from the same source data as the quotations, avoiding hand-maintained copies.
+
+## Trade-offs and lessons
+
+- **Explicit models over clever code.** Representing business rules as data made the system easier to change than encoding them in control flow — at the cost of building the modeling layer first.
+- **Isolate the outside world.** The CRM boundary was the most failure-prone part; keeping it behind a narrow interface contained the damage when the external API misbehaved.
+- **Determinism is a feature.** Reproducible outputs made both testing and production debugging substantially easier.
+
+> This is an initial summary. A fuller case study — with generalized architecture discussion — will be added later.

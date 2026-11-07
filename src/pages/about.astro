@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+---
+
+<Base
+  title="About — Limin Malek"
+  description="About Limin Malek: software engineer in Berlin working on production Python systems, interested in systems architecture and AI infrastructure."
+>
+  <section class="py-12">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-faint">About</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-[-0.02em] md:text-5xl">
+      Software engineer in Berlin.
+    </h1>
+  </section>
+
+  <div class="mdx-body border-t border-line py-8">
+    <p>
+      I’m {site.name}, a software engineer based in {site.location}. I studied computer
+      science at TU Berlin while working as a software engineer — about three years of
+      professional experience building and maintaining production software.
+    </p>
+    <p>
+      Most of that work has been in Python backends: production applications with complex
+      business logic, optimization and scheduling problems, integrations with enterprise
+      APIs such as Microsoft Dynamics 365 / Dataverse, Azure-hosted deployments, and
+      programmatic document generation. I’ve spent a fair amount of time debugging
+      production issues and investigating how systems behave under real constraints.
+    </p>
+    <p>
+      My current direction is AI systems engineering — not wrappers around models, but the
+      harder problems underneath: agent architectures, execution runtimes, durable
+      execution, scheduling, fault tolerance, observability, and evaluation. Distributed
+      systems and performance engineering belong to the same interest. These are areas I’m
+      actively developing, not expertise I claim to have finished.
+    </p>
+    <p>
+      This site collects what I build and what I’m learning. You can find my code on{' '}
+      <a href={site.links.github} target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+</Base>
