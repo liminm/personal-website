@@ -1,8 +1,8 @@
 # liminm — personal website
 
-Limin M. · Python · AI Engineering · Full-Stack (TS) · GitHub Pages (liminm.eu future).
+Limin M. · Dependable AI systems · Generative computation.
 
-Built with **Vite + TypeScript + p5.js** (dark editorial, single visual system).
+Built with **Vite + TypeScript + vanilla Canvas 2D** (pale editorial, unframed generative study).
 
 ## Quick start
 ```bash
@@ -13,16 +13,17 @@ npm run preview
 ```
 
 ## Structure
-- `index.html` — single-page (hero + about) over fullscreen visual field
-- `src/main.ts` — canvas lifecycle (seeded, DPR 1.5, IntersectionObserver)
-- `src/sketches/flow-field.ts` — layered ribbons system
-- `src/style.css` — tokens (`--bg #101112`, `--fg #f2efe8`, `--accent #d7f65b`), Space Grotesk + IBM Plex Mono
+- `index.html` — intro + generative study, about, contact
+- `src/main.ts` — canvas lifecycle (seeded, fixed logical space, DPR cap, reduced-motion still)
+- `src/growth.ts` — woven flow-field: strands over tension points, graphite + cobalt tension accents
+- `src/style.css` — tokens (`--bg #f3f4f2`, `--ink #1e2126`, `--accent #2347ff`), Space Grotesk + IBM Plex Mono
 - `public/favicon.svg`, `404.html`
+- `?seed=your-word` reproduces a composition at the same viewport shape
 
 ## Deploy
-Push to `main` → `.github/workflows/deploy.yml` → GitHub Pages. Deploys to `*.github.io/personal-website/` — add `CNAME=liminm.eu` + A records `185.199.108-111.153` later to cut over domain. HTTPS via Pages.
+Push to `main` → `.github/workflows/deploy.yml` → GitHub Pages. No CNAME yet; `liminm.eu` cutover is future work.
 
 ## Accessibility
-- `prefers-reduced-motion: reduce` → static frame
-- `focus-visible` outlines, keyboard nav
-- Canvas is `aria-hidden`, content remains readable without it
+- `prefers-reduced-motion: reduce` → finished still frame, including runtime changes
+- Skip link, semantic landmarks, visible focus outlines
+- Canvas is `aria-hidden` with a labelled figure; content reads fully without JavaScript

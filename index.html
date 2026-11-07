@@ -3,56 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Limin M — Developer</title>
-    <meta name="description" content="Limin M — Developer focused on Python, AI engineering and full-stack TypeScript." />
-    <meta property="og:title" content="Limin M — Developer" />
-    <meta property="og:description" content="Developer focused on Python, AI engineering and full-stack TypeScript." />
+    <title>Limin M — Dependable AI Systems</title>
+    <meta name="description" content="Limin M — software developer investigating what makes AI systems dependable: execution, coordination, state, and recovery." />
+    <meta property="og:title" content="Limin M — Dependable AI Systems" />
+    <meta property="og:description" content="Software developer investigating what makes AI systems dependable: execution, coordination, state, and recovery." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://liminm.eu/" />
-    <meta name="theme-color" content="#101112" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#f3f4f2" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div id="canvas-container" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary">
-        <a href="/" class="logo">liminm<span class="dot">.</span></a>
+        <a class="brand" href="/">limin<span>.</span></a>
         <div class="nav-links">
-          <button class="nav-btn" id="about-toggle" aria-expanded="false" aria-controls="about-panel">about</button>
-          <a href="https://github.com/liminm" target="_blank" rel="noopener">github ↗</a>
+          <a href="#about">about</a>
+          <a href="#contact">contact</a>
         </div>
       </nav>
     </header>
 
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-caption">
-          <p class="kicker">Python · AI Engineering · Full-Stack</p>
-          <h1 id="hero-title" class="quiet-title">Limin M.<br>Developer</h1>
-          <p class="quiet-sub">Python, FastAPI, Django, LLMs, machine learning and computer vision — growing into TypeScript, MLOps, agents and system design.</p>
-          <button class="text-link" id="about-open" aria-expanded="false" aria-controls="about-panel">about →</button>
+    <main class="wrap" id="main">
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <h1 id="title">I build software and investigate what makes AI systems dependable.</h1>
+          <p class="lede">
+            I’m <strong>Limin</strong> — my interests centre on execution, coordination,
+            state, and recovery, especially in systems where models and tools interact.
+          </p>
+        </div>
+        <figure class="figure" aria-label="Generative woven study">
+          <div class="canvas-host"><canvas id="study" aria-hidden="true"></canvas>
+          <noscript>
+            <svg viewBox="0 0 400 400" role="img" aria-label="Static woven study placeholder">
+              <rect width="400" height="400" fill="none"/>
+              <g stroke="#1e2126" stroke-width="1" opacity="0.55" fill="none">
+                <path d="M20 120 C 120 100, 180 200, 300 160 S 360 220, 390 200"/>
+                <path d="M15 170 C 110 150, 190 250, 290 210 S 360 260, 395 245"/>
+                <path d="M25 220 C 120 200, 200 300, 300 260 S 365 300, 390 290"/>
+                <path d="M30 270 C 130 250, 210 340, 310 300"/>
+                <path d="M60 90 C 140 130, 220 90, 330 140" stroke="#2347ff" opacity="0.7"/>
+              </g>
+            </svg>
+            <p class="noscript-note">The generative study needs JavaScript; the writing above reads the same without it.</p>
+          </noscript></div>
+          <figcaption><span>A woven study — grown in your browser, fresh each visit.</span><span id="seed-label"></span></figcaption>
+        </figure>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-h">
+        <div><h2 id="about-h">About</h2></div>
+        <div>
+          <p>
+            My professional work involves building applications around complicated rules,
+            data, and integrations. Beyond the applications themselves, I’m drawn to the
+            mechanisms underneath: execution, coordination, state, and the trade-offs
+            that shape an architecture.
+          </p>
+          <p>
+            I’m also drawn to generative computation — simple local rules producing
+            organic, unexpected form. This site collects experiments and investigations
+            as they develop.
+          </p>
         </div>
       </section>
 
-      <section id="about-panel" class="about-panel" hidden>
-        <div class="panel-inner">
-          <h2>About</h2>
-          <p>I'm Limin — working at the intersection of Python backends and AI engineering. I build with FastAPI and Django, ship LLM and computer vision systems, and increasingly design full-stack TypeScript, MLOps pipelines and agent architectures.</p>
-          <p class="muted small">hello@liminm.eu · <a href="https://github.com/liminm" target="_blank" rel="noopener">github.com/liminm</a></p>
-          <button class="text-link small" id="about-close">close ×</button>
+      <section class="about contact" id="contact" aria-labelledby="contact-h">
+        <div><h2 id="contact-h">Contact</h2></div>
+        <div class="contact">
+          <p><a href="https://github.com/liminm" target="_blank" rel="noopener">github.com/liminm</a></p>
         </div>
       </section>
+
+      <footer class="site-footer">
+        <span>© 2026 Limin M.</span>
+        <span><a href="https://github.com/liminm/personal-website" target="_blank" rel="noopener">View source</a></span>
+      </footer>
     </main>
-
-    <footer class="site-footer">
-      <span>© 2026 Limin M.</span>
-      <span><a href="https://github.com/liminm/personal-website" target="_blank" rel="noopener">View source</a></span>
-    </footer>
 
     <script type="module" src="/src/main.ts"></script>
   </body>
