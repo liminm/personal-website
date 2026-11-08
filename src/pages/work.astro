@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import type { WorkEntry } from '../content-types';
+
+const entries = ((await getCollection('work')) as unknown as WorkEntry[]).filter(
+  (e) => !e.data.draft,
+);
+---
+
+<Base
+  title="Work — Limin Malek"
+  description="Engineering work by Limin Malek: production backend systems, optimization, and enterprise integrations."
+>
+  <section class="py-12">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-faint">Work</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-[-0.02em] md:text-5xl">
+      Problems I’ve worked on.
+    </h1>
+    <p class="mt-5 max-w-[62ch] leading-relaxed text-muted">
+      I work on production software: backends, optimization, integrations, and the
+      operational reality around them. Employer-owned work is described in general,
+      anonymized terms — no proprietary details.
+    </p>
+  </section>
+
+  <section aria-label="Work entries" class="border-t border-line py-8">
+    {
+      entries.length === 0 ? (
+        <p class="leading-relaxed text-muted">
+          Detailed case studies are being written. Each will cover the problem,
+          constraints, approach, trade-offs, and lessons learned.
+        </p>
+      ) : (
+        <ul class="space-y-8">
+          {entries.map((e: WorkEntry) => (
+            <li>
+              <article>
+                <h2 class="text-2xl font-semibold tracking-tight">
+                  <a href={`/work/${e.id}`} class="hover:text-accent">
+                    {e.data.title}
+                  </a>
+                </h2>
+                {e.data.period && (
+                  <p class="mt-1 font-mono text-xs text-faint">{e.data.period}</p>
+                )}
+                <p class="mt-2 max-w-[62ch] leading-relaxed text-muted">{e.data.summary}</p>
+                {e.data.tags.length > 0 && (
+                  <p class="mt-2 font-mono text-xs text-faint">{e.data.tags.join(' · ')}</p>
+                )}
+              </article>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</Base>

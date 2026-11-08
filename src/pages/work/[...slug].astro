@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import type { WorkEntry } from '../../content-types';
+
+type RawEntry = Record<string, unknown> & { id: string; data: WorkEntry['data'] };
+type RenderInput = Parameters<typeof render>[0];
+
+export async function getStaticPaths() {
+  // Single fetch; the runtime objects are the real content-layer entries.
+  // Only the static type is widened (astro check cannot see the registry).
+  const entries = ((await getCollection('work')) as unknown as RawEntry[]).filter(
+    (e) => !e.data.draft,
+  );
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: RawEntry };
+const { Content } = await render(entry as unknown as RenderInput);
+---
+
+<Base title={`${entry.data.title} — Limin Malek`} description={entry.data.summary}>
+  <article class="py-12">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-faint">
+      <a href="/work" class="hover:text-ink">Work</a>
+    </p>
+    <h1 class="mt-3 max-w-[22ch] text-3xl font-semibold tracking-[-0.02em] md:text-4xl">
+      {entry.data.title}
+    </h1>
+    {entry.data.period && (
+      <p class="mt-3 font-mono text-xs text-faint">{entry.data.period}</p>
+    )}
+    {entry.data.tags.length > 0 && (
+      <p class="mt-1 font-mono text-xs text-faint">{entry.data.tags.join(' · ')}</p>
+    )}
+    <div class="mdx-body mt-8"><Content /></div>
+  </article>
+</Base>
