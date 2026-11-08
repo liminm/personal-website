@@ -57,7 +57,25 @@ const canonical = new URL(Astro.url.pathname, site.url).toString();
     >
     <header class="border-b border-line">
       <nav aria-label="Primary" class="mx-auto flex max-w-3xl items-center justify-between px-5 py-4">
-        <a href="/" class="font-semibold tracking-tight">{site.name}</a>
+        <a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="20 20 530 530"
+            width="22"
+            height="22"
+            fill="currentColor"
+            aria-hidden="true"
+            class="shrink-0"
+          >
+            <path
+              d="M84 403C61 365 49 322 49 274 49 145 155 40 285 40c63 0 118 23 118 65v65H233c-33 0-59 26-59 59v75c0 9-3 14-9 20Z"
+            />
+            <path
+              d="M175 386h177c28 0 50-22 50-50v-70c0-7 3-13 8-18l81-90c24 39 36 80 36 120 0 134-106 242-240 242-62 0-112-32-112-76Z"
+            />
+          </svg>
+          <span>{site.name}</span>
+        </a>
         <div class="flex items-center gap-5 font-mono text-[13px]">
           {
             site.nav.slice(1).map((item) => (
